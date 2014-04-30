@@ -28,7 +28,7 @@ public class JFenrir {
     public Point getCorner() {
         int total = 500;
         int current = 0;
-        for (int x = 0; x < GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds().getWidth(); x++) {
+        for (int x = 150; x < GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds().getWidth(); x++) {
             for (int y = 0; y < GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds().getHeight(); y++) {
                 if (jFenrir.getPixelColor(x, y) == new Color(0xbbada0)) {
                     current++;
