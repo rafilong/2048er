@@ -12,7 +12,17 @@ public class Grid {
     /**
      * The point where color is drawn from the first sqaure
      */
-    private static Point firstPick;
+    private static Point firstPick = new Point(0, 0);
+
+    /**
+     * The current highest block
+     */
+    public static int largest;
+
+    /**
+     * The previous highest block
+     */
+    public static int lastLargest;
 
     /**
      * The width of the cells
@@ -36,6 +46,7 @@ public class Grid {
     public static void reset() {
         setFirstPick();
         setGrid();
+        lastLargest = largest;
     }
 
     /**
@@ -70,5 +81,20 @@ public class Grid {
         int x = (int) (firstPick.getX() + c * (cellWidth + cellPadding));
         int y = (int) (firstPick.getY() + r * (cellWidth + cellPadding));
         return Main.fenrir.getColor(x, y);
+    }
+
+    /**
+     * Gets the biggest value
+     * @return Returns the biggest number
+     */
+    public static int getBiggest() {
+        for (int y = 0; y < 4; y++) {
+            for (int x = 0; x < 4; x++) {
+                if (Calculate.grid[x][y] > largest) {
+                    largest = Calculate.grid[x][y];
+                }
+            }
+        }
+        return largest;
     }
 }
