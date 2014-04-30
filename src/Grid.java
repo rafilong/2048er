@@ -25,11 +25,6 @@ public class Grid {
     private static int cellPadding = 15;
 
     /**
-     * Is the grid of the gameboard
-     */
-    private static int[][] grid = {{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}};
-
-    /**
      * Holds colors for pieces
      * In order of [0, 2, 4, 8, 16, 32, 64...]
      */
@@ -58,7 +53,7 @@ public class Grid {
             for (int x = 0; x < 4; x++) {
                 for (int c = 0; c < 12; c++) {
                     if (colors[c] == getColor(x, y)) {
-                        grid[x][y] = (int) Math.pow(2, c);
+                        Calculate.grid[x][y] = (int) Math.pow(2, c);
                     }
                 }
             }
