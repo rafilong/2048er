@@ -31,7 +31,6 @@ public class Main {
      * Initializes the game
      */
     public static void initialize() {
-        System.out.println(fenrir.getColor(1, 1));
         Grid.corner = fenrir.getCorner();
         System.out.println(Grid.corner);
     }
