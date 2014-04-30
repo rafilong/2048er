@@ -79,9 +79,19 @@ public class Calculate {
                     int right = moveRight();
                     int left = moveLeft();
                     afterScore = Math.max(right, left);
-                    if (afterScore == left) {
+                    if (right == left) {
+                        if (Math.random() > .5) {
+                            System.out.println("wow");
+                            score[0] = 1;
+                        } else {
+                            System.out.println("sad");
+                            score[0] = 0;
+                        }
+                    } else if (afterScore == left) {
+                        System.out.println("blah");
                         score[0] = 0;
                     } else {
+                        System.out.println("weird");
                         score[0] = 1;
                     }
                     score[1] += afterScore;
@@ -116,7 +126,7 @@ public class Calculate {
      * @return returns the highest value possible gotten from moving right
      */
     public static int moveRight() {
-        for (int x = 0; x < 3; x++) {
+        for (int x = 1; x < 4; x++) {
             for (int y = 0; y < 4; y++) {
                 if (grid[4-x][y] > 0) {
                     if (grid[4-x][y] == grid[3-x][y]) {
