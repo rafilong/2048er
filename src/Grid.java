@@ -1,7 +1,7 @@
 import java.awt.*;
 
 /**
- * Calculates the best moves
+ * Calculates the grid
  */
 public class Grid {
     /**

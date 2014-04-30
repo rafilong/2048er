@@ -55,4 +55,13 @@ public class JFenrir {
     public Color getColor(int x, int y) {
         return jFenrir.getPixelColor(x, y);
     }
+
+    /**
+     * Presses and releases a key
+     * @param key the key code to be pressed
+     */
+    public void pressKey(int key) {
+        jFenrir.keyPress(key);
+        jFenrir.keyRelease(key);
+    }
 }
