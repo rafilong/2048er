@@ -18,7 +18,7 @@ public class Main {
         while (true) {
             Grid.reset();
             Calculate.calculateMove();
-            if (Grid.lastLargest < Grid.getBiggest()) {
+            if (Grid.lastLargest < Grid.getBiggest() && Grid.getBiggest() > 2048) {
                 boolean wait = false;
                 while (!wait) {
                     wait = input("Do you want to continue [Yes/No]");
