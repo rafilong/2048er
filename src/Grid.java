@@ -63,7 +63,7 @@ public class Grid {
         for (int y = 0; y < 4; y++) {
             for (int x = 0; x < 4; x++) {
                 for (int c = 0; c < 12; c++) {
-                    if (colors[c] == getColor(x, y)) {
+                    if (colors[c].equals(getColor(x, y))) {
                         Calculate.grid[x][y] = (int) Math.pow(2, c);
                     }
                 }

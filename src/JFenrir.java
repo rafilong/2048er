@@ -26,11 +26,12 @@ public class JFenrir {
      * @return the point of the corner of the board
      */
     public Point getCorner() {
+        Color edge = new Color(0xbbada0);
         int total = 500;
         int current = 0;
-        for (int x = 150; x < GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds().getWidth(); x++) {
+        for (int x = 230; x < GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds().getWidth(); x++) {
             for (int y = 0; y < GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds().getHeight(); y++) {
-                if (jFenrir.getPixelColor(x, y) == new Color(0xbbada0)) {
+                if (edge.equals(jFenrir.getPixelColor(x, y))) {
                     current++;
                     System.out.println(current + "numbers of color");
                     if (current == total) {
