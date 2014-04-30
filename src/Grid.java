@@ -60,10 +60,12 @@ public class Grid {
      * Sets the grid according to the screen
      */
     public static void setGrid() {
+        Color color;
         for (int y = 0; y < 4; y++) {
             for (int x = 0; x < 4; x++) {
+                color = getColor(x, y);
                 for (int c = 0; c < 12; c++) {
-                    if (colors[c].equals(getColor(x, y))) {
+                    if (colors[c].equals(color)) {
                         Calculate.grid[x][y] = (int) Math.pow(2, c);
                     }
                 }

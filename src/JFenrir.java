@@ -33,9 +33,9 @@ public class JFenrir {
             for (int y = 0; y < GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds().getHeight(); y++) {
                 if (edge.equals(jFenrir.getPixelColor(x, y))) {
                     current++;
-                    System.out.println(current + "numbers of color");
+                    System.out.println(current + " numbers of color");
                     if (current == total) {
-                        return MouseInfo.getPointerInfo().getLocation();
+                        return new Point(x, y-500);
                     }
                 } else {
                     current = 0;

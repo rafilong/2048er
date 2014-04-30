@@ -12,11 +12,13 @@ public class Calculate {
      */
     public static void calculateMove() {
         int horizontalScore = checkHorizontal();
+        System.out.println("Horizon score is " + horizontalScore);
         int verticalScore = checkVertical();
+        System.out.println("Verticl score is " + verticalScore);
 
         double smallest = Math.min(horizontalScore, verticalScore);
 
-        if (horizontalScore == smallest) {
+        if (horizontalScore != smallest) {
             if (Math.random() < .5) {
                 move(1);
             } else {
@@ -50,7 +52,7 @@ public class Calculate {
         int score = 0;
         for (int y = 0; y < 4; y++) {
             for (int x = 0; x < 3; x++) {
-                if (grid[x][y] == grid[x+1][y]) {
+                if (grid[x][y] == grid[x+1][y] && grid[x][y] != 0) {
                     score++;
                 }
             }
@@ -65,7 +67,7 @@ public class Calculate {
         int score = 0;
         for (int y = 0; y < 3; y++) {
             for (int x = 0; x < 4; x++) {
-                if (grid[x][y] == grid[x][y+1]) {
+                if (grid[x][y] == grid[x][y+1] && grid[x][y] != 0) {
                     score++;
                 }
             }
