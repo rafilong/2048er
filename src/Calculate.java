@@ -5,19 +5,55 @@ public class Calculate {
     /**
      * Is the grid of the gameboard
      */
-    public static int[][] grid = {{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}};
+    public int[][] grid = {{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}};
 
     /**
-     * The grid after a move
+     * The object current
      */
-    public static int[][] gridAfter = {{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}};
+    public static Calculate current = new Calculate();
+
+    /**
+     * The object after the move
+     */
+    public static Calculate after = new Calculate();
+
+    /**
+     * Constructor
+     */
+    public Calculate() {
+
+    }
 
     /**
      * Calculates the best move
      */
     public static void calculateMove() {
-        int[] horiz = checkHorizontal();
-        int[] verti = checkVertical();
+        int[] horiz = current.checkHorizontal();
+        int afterScore = 0;
+        copyGrid();
+        int right = after.moveRight();
+        copyGrid();
+        int left = after.moveLeft();
+        afterScore = Math.max(right, left);
+        if (right == left) {
+            if (Math.random() > .5) {
+                horiz[0] = 1;
+            } else {
+                horiz[0] = 0;
+            }
+        } else if (afterScore == left) {
+            horiz[0] = 0;
+        } else {
+            horiz[0] = 1;
+        }
+        horiz[1] += afterScore;
+
+        int[] verti = current.checkVertical();
+        afterScore = 0;
+        copyGrid();
+        afterScore = after.moveDown();
+        verti[1] += afterScore;
+
         System.out.println("Horizon score is " + horiz[1]);
         System.out.println("Verticl score is " + verti[1]);
 
@@ -56,7 +92,7 @@ public class Calculate {
     public static void copyGrid() {
         for (int y = 0; y < 4; y++) {
             for (int x = 0; x < 4; x++) {
-                gridAfter[x][y] = grid[x][y];
+                after.grid[x][y] = current.grid[x][y];
             }
         }
     }
@@ -66,7 +102,7 @@ public class Calculate {
      * Checks to see how many combines to right
      * @return the direction and score
      */
-    public static int[] checkHorizontal() {
+    public int[] checkHorizontal() {
         int[] score = {0, 0};
         for (int y = 0; y < 4; y++) {
             for (int x = 0; x < 3; x++) {
@@ -74,27 +110,6 @@ public class Calculate {
                     score[1]++;
                     if (grid[x][y] > 16) score[1] += 2;
                     if (grid[x][y] > 128) score[1] += 2;
-                    int afterScore = 0;
-                    copyGrid();
-                    int right = moveRight();
-                    int left = moveLeft();
-                    afterScore = Math.max(right, left);
-                    if (right == left) {
-                        if (Math.random() > .5) {
-                            System.out.println("wow");
-                            score[0] = 1;
-                        } else {
-                            System.out.println("sad");
-                            score[0] = 0;
-                        }
-                    } else if (afterScore == left) {
-                        System.out.println("blah");
-                        score[0] = 0;
-                    } else {
-                        System.out.println("weird");
-                        score[0] = 1;
-                    }
-                    score[1] += afterScore;
                 }
             }
         }
@@ -104,7 +119,7 @@ public class Calculate {
     /**
      * Checks to see how many combines down
      */
-    public static int[] checkVertical() {
+    public int[] checkVertical() {
         int[] score = {0, 0};
         for (int y = 0; y < 3; y++) {
             for (int x = 0; x < 4; x++) {
@@ -112,9 +127,6 @@ public class Calculate {
                     score[1]++;
                     if (grid[x][y] > 16) score[1] += 2;
                     if (grid[x][y] > 128) score[1] += 2;
-                    int afterScore = 0;
-                    copyGrid();
-                    score[1] += moveDown();
                 }
             }
         }
@@ -125,7 +137,7 @@ public class Calculate {
      * Moves the grid right
      * @return returns the highest value possible gotten from moving right
      */
-    public static int moveRight() {
+    public int moveRight() {
         for (int x = 1; x < 4; x++) {
             for (int y = 0; y < 4; y++) {
                 if (grid[4-x][y] > 0) {
@@ -133,8 +145,8 @@ public class Calculate {
                         grid[4-x][y] = 0;
                         grid[3-x][y] *= 2;
                     } else if (grid[3-x][y] == 0) {
-                            grid[3-x][y] = grid[4-x][y];
-                            grid[4-x][y] = 0;
+                        grid[3-x][y] = grid[4-x][y];
+                        grid[4-x][y] = 0;
                     }
                 }
             }
@@ -146,7 +158,7 @@ public class Calculate {
      * Moves the grid left
      * @return returns the highest value possible gotten from moving left
      */
-    public static int moveLeft() {
+    public int moveLeft() {
         for (int x = 0; x < 3; x++) {
             for (int y = 0; y < 4; y++) {
                 if (grid[x][y] > 0) {
@@ -167,7 +179,7 @@ public class Calculate {
      * Moves the grid down
      * @return returns the highest value possible gotten from moving down
      */
-    public static int moveDown() {
+    public int moveDown() {
         for (int x = 0; x < 4; x++) {
             for (int y = 0; y < 3; y++) {
                 if (grid[x][y] > 0) {
@@ -182,6 +194,17 @@ public class Calculate {
             }
         }
         return Math.max(checkHorizontal()[1], checkVertical()[1]);
+    }
+
+    /**
+     * Empties the grid
+     */
+    public void clearGrid() {
+        for (int y = 0; y < 4; y++) {
+            for (int x = 0; x < 4; x++) {
+                grid[x][y] = 0;
+            }
+        }
     }
 
 }

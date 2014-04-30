@@ -45,7 +45,7 @@ public class Grid {
      */
     public static void reset() {
         setFirstPick();
-        clearGrid();
+        Calculate.current.clearGrid();
         setGrid();
         lastLargest = largest;
     }
@@ -67,20 +67,9 @@ public class Grid {
                 color = getColor(x, y);
                 for (int c = 0; c < 12; c++) {
                     if (colors[c].equals(color)) {
-                        Calculate.grid[x][y] = (int) Math.pow(2, c);
+                        Calculate.current.grid[x][y] = (int) Math.pow(2, c);
                     }
                 }
-            }
-        }
-    }
-
-    /**
-     * Empties the grid
-     */
-    public static void clearGrid() {
-        for (int y = 0; y < 4; y++) {
-            for (int x = 0; x < 4; x++) {
-                Calculate.grid[x][y] = 0;
             }
         }
     }
@@ -104,8 +93,8 @@ public class Grid {
     public static int getBiggest() {
         for (int y = 0; y < 4; y++) {
             for (int x = 0; x < 4; x++) {
-                if (Calculate.grid[x][y] > largest) {
-                    largest = Calculate.grid[x][y];
+                if (Calculate.current.grid[x][y] > largest) {
+                    largest = Calculate.current.grid[x][y];
                 }
             }
         }
