@@ -45,6 +45,7 @@ public class Grid {
      */
     public static void reset() {
         setFirstPick();
+        clearGrid();
         setGrid();
         lastLargest = largest;
     }
@@ -69,6 +70,17 @@ public class Grid {
                         Calculate.grid[x][y] = (int) Math.pow(2, c);
                     }
                 }
+            }
+        }
+    }
+
+    /**
+     * Empties the grid
+     */
+    public static void clearGrid() {
+        for (int y = 0; y < 4; y++) {
+            for (int x = 0; x < 4; x++) {
+                Calculate.grid[x][y] = 0;
             }
         }
     }
