@@ -34,9 +34,6 @@ public class Main {
      * Initializes the game
      */
     public static void initialize() {
-//        while(true) {
-//            System.out.println(fenrir.getColor((int) (MouseInfo.getPointerInfo().getLocation().getX()), (int) (MouseInfo.getPointerInfo().getLocation().getY())));
-//        }
         Grid.corner = fenrir.getCorner();
         System.out.println(Grid.corner);
     }
