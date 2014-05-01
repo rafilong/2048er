@@ -19,7 +19,7 @@ public class Main {
     public static void main(String args[]) {
         initialize();
         while (true) {
-            Grid.reset();
+            Interperet.reset();
             Calculate.calculateMove();
             if (Grid.lastLargest < Grid.getBiggest() && Grid.getBiggest() > 2048) {
                 boolean wait = false;
@@ -34,8 +34,8 @@ public class Main {
      * Initializes the game
      */
     public static void initialize() {
-        Grid.corner = fenrir.getCorner();
-        System.out.println(Grid.corner);
+        Interperet.corner = fenrir.getCorner();
+        System.out.println(Interperet.corner);
     }
 
     /**
