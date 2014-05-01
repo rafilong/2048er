@@ -20,13 +20,13 @@ public class Main {
         initialize();
         while (true) {
             Interperet.reset();
-            Calculate.calculateMove();
-            if (Grid.lastLargest < Grid.getBiggest() && Grid.getBiggest() > 2048) {
-                boolean wait = false;
-                while (!wait) {
-                    wait = input("Do you want to continue [Yes/No]");
-                }
-            }
+            Calculate.move(Calculate.bestMove());
+//            if (Grid.lastLargest < Grid.getBiggest() && Grid.getBiggest() > 2048) {
+//                boolean wait = false;
+//                while (!wait) {
+//                    wait = input("Do you want to continue [Yes/No]");
+//                }
+//            }
         }
     }
 
@@ -36,6 +36,7 @@ public class Main {
     public static void initialize() {
         Interperet.corner = fenrir.getCorner();
         System.out.println(Interperet.corner);
+        Calculate.scenarios[0] = new Grid();
     }
 
     /**

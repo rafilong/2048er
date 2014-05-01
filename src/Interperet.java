@@ -35,9 +35,9 @@ public class Interperet {
      */
     public static void reset() {
         setFirstPick();
-        Calculate.current.clearGrid();
+        Calculate.scenarios[0].clearGrid();
         setGrid();
-        lastLargest = largest;
+        Calculate.scenarios[0].setLastLargest();
     }
 
     /**
