@@ -1,4 +1,6 @@
-
+/**
+ * Runs commands on grid
+ */
 public class Grid {
     /**
      * The grid that computations are run on
