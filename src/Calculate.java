@@ -26,11 +26,13 @@ public class Calculate {
         int left = scenarios[0].move(1);
         int up = scenarios[0].move(2);
         int right = scenarios[0].move(3);
+        System.out.println(down + " " + left + " " + up + " " + right);
         int lowest = Math.min(Math.min(down, left), Math.min(up, right));
         if (lowest == down) return 0;
         if (lowest == left) return 1;
         if (lowest == up) return 2;
         if (lowest == right) return 3;
+        System.out.println("such stupid");
         return 0;
     }
 
@@ -40,10 +42,13 @@ public class Calculate {
      */
     public static void move(int d) {
         if (d == 0) {
+            System.out.println("down");
             Main.fenrir.pressKey(40);
         } else if (d == 1) {
+            System.out.println("left");
             Main.fenrir.pressKey(37);
         } else if (d == 3) {
+            System.out.println("right");
             Main.fenrir.pressKey(39);
         } else {
             System.err.println("Not a valid direction");

@@ -98,7 +98,7 @@ public class Grid {
     public int moveLeft() {
         int total = 0;
         for (int y = 0; y < 4; y++) {
-            for (int x = 3; x >= 0; x--) {
+            for (int x = 3; x > 0; x--) {
                 if (grid[x][y] != 0 && grid[x][y] == grid[x-1][y]) {
                     grid[x][y] *= 2;
                     grid[x-1][y] = 0;
