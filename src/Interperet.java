@@ -44,7 +44,7 @@ public class Interperet {
      * Sets the firstPick to be dependent on corner
      */
     private static void setFirstPick() {
-        firstPick.setLocation(corner.getX() + 30, corner.getY() + 30);
+        firstPick.setLocation(corner.getX() + 30, corner.getY() - 30);
     }
 
     /**
@@ -72,7 +72,7 @@ public class Interperet {
      */
     public static Color getColor(int c, int r) {
         int x = (int) (firstPick.getX() + c * (cellWidth + cellPadding));
-        int y = (int) (firstPick.getY() + r * (cellWidth + cellPadding));
+        int y = (int) (firstPick.getY() - r * (cellWidth + cellPadding));
         return Main.fenrir.getColor(x, y);
     }
 }

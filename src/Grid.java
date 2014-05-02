@@ -111,6 +111,7 @@ public class Grid {
      * @return returns the number of combines, -1 if there are no changes
      */
     public int moveDown() {
+        printGrid();
         int total = 0;
         for (int y = 0; y < 3; y++) {
             for (int x = 0; x < 4; x++) {
@@ -118,9 +119,11 @@ public class Grid {
                     next.grid[x][y] *= 2;
                     next.grid[x][y+1] = 0;
                     total++;
+                    System.out.println("thinks it can merge?");
                 } else if (next.grid[x][y] == 0 && next.grid[x][y+1] > 0) {
                     next.grid[x][y] = next.grid[x][y+1];
                     next.grid[x][y+1] = 0;
+                    System.out.println("thinks it can move?");
                 }
             }
         }
@@ -136,12 +139,12 @@ public class Grid {
         for (int y = 0; y < 4; y++) {
             for (int x = 3; x > 0; x--) {
                 if (next.grid[x][y] != 0 && next.grid[x][y] == next.grid[x-1][y]) {
-                    next.grid[x][y] *= 2;
-                    next.grid[x-1][y] = 0;
+                    next.grid[x-1][y] *= 2;
+                    next.grid[x][y] = 0;
                     total++;
-                } else if (next.grid[x][y] == 0 && next.grid[x-1][y] > 0) {
+                } else if (next.grid[x-1][y] == 0 && next.grid[x][y] > 0) {
                     next.grid[x-1][y] = next.grid[x][y];
-                    next.grid[x-1][y] = 0;
+                    next.grid[x][y] = 0;
                 }
             }
         }
@@ -153,7 +156,7 @@ public class Grid {
      * @return returns the number of combines, -1 if there are no changes
      */
     public int moveUp() {
-        int total = -10;
+        int total = 0;
         for (int y = 3; y > 0; y--) {
             for (int x = 0; x < 4; x++) {
                 if (next.grid[x][y] != 0 && next.grid[x][y] == grid[x][y-1]) {
@@ -178,16 +181,28 @@ public class Grid {
         for (int y = 0; y < 4; y++) {
             for (int x = 0; x < 3; x++) {
                 if (next.grid[x][y] != 0 && next.grid[x][y] == next.grid[x+1][y]) {
-                    next.grid[x][y] *= 2;
-                    next.grid[x+1][y] = 0;
+                    next.grid[x+1][y] *= 2;
+                    next.grid[x][y] = 0;
                     total++;
-                } else if (next.grid[x][y] == 0 && next.grid[x+1][y] > 0) {
-                    next.grid[x][y] = next.grid[x+1][y];
-                    next.grid[x+1][y] = 0;
+                } else if (next.grid[x+1][y] == 0 && next.grid[x][y] > 0) {
+                    next.grid[x+1][y] = next.grid[x][y];
+                    next.grid[x][y] = 0;
                 }
 
             }
         }
         return total + findChange();
+    }
+
+    /**
+     * Prints the grid
+     */
+    public void printGrid() {
+        for (int y = 3; y >= 0; y--) {
+            for (int x = 0; x < 4; x++) {
+                System.out.print(grid[x][y] + " ");
+            }
+            System.out.println();
+        }
     }
 }

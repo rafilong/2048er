@@ -35,7 +35,7 @@ public class JFenrir {
                     current++;
                     System.out.println(current + " numbers of color");
                     if (current == total) {
-                        return new Point(x, y-500);
+                        return new Point(x, y);
                     }
                 } else {
                     current = 0;
