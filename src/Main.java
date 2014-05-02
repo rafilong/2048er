@@ -36,8 +36,12 @@ public class Main {
     public static void initialize() {
         Interperet.corner = fenrir.getCorner();
         System.out.println(Interperet.corner);
-        for (int i = 0; i < Calculate.scenarios.length; i++) {
-            Calculate.scenarios[i] = new Grid(Calculate.scenarios[i+1]);
+        for (int i = Calculate.scenarios.length - 1; i >= 0; i--) {
+            if (i < Calculate.scenarios.length - 2) {
+                Calculate.scenarios[i] = new Grid(Calculate.scenarios[i+1]);
+            } else {
+                Calculate.scenarios[i] = new Grid(null);
+            }
         }
     }
 

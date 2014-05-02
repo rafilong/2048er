@@ -33,12 +33,12 @@ public class Calculate {
 
         System.out.println(down + " " + left + " " + up + " " + right);
 
-        int lowest = Math.min(Math.min(down, left), Math.min(up, right));
-        if (lowest == down) return 0;
-        if (lowest == left) return 1;
-        if (lowest == up) return 2;
-        if (lowest == right) return 3;
-        System.out.println("such stupid");
+        int largest = Math.max(Math.max(down, left), Math.max(up, right));
+        if (largest == down) return 0;
+        if (largest == left) return 1;
+        if (largest == up) return 2;
+        if (largest == right) return 3;
+        System.err.println("wut");
         return 0;
     }
 
