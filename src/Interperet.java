@@ -28,7 +28,8 @@ public class Interperet {
      * Holds colors for pieces
      * In order of [0, 2, 4, 8, 16, 32, 64...]
      */
-    private static Color[] colors = {new Color(0xccc0b4), new Color(0xeee4da), new Color(0xede0c8), new Color(0xf2b179), new Color(0xf59563), new Color(0xdb8a6f), new Color(0xe95937), new Color(0xf2d86a), new Color(0xe8be2e), new Color(0xe2b913), new Color(0xeec400), new Color (0x60d992)};
+    private static Color[] colors = {new Color(0xccc0b4), new Color(0xeee4da), new Color(0xede0c8), new Color(0xf2b179), new Color(0xf59563), new Color(0xf67c5f), new Color(0xf65d3b), new Color(0xedcf72), new Color(0xedcc61), new Color(0xedc53f), new Color(0xeec400), new Color(0x60d992), new Color(0xedcf72)};
+    //                                             0                    2                   4                     8                   16                    32                  64                   128                  256                  512                  1024                2048                4096
 
     /**
      * Resets all variables
