@@ -22,11 +22,17 @@ public class Calculate {
      * @return the best direction
      */
     public static int bestMove() {
+        scenarios[0].setNext();
         int down = scenarios[0].move(0);
+        scenarios[0].setNext();
         int left = scenarios[0].move(1);
+        scenarios[0].setNext();
         int up = scenarios[0].move(2);
+        scenarios[0].setNext();
         int right = scenarios[0].move(3);
+
         System.out.println(down + " " + left + " " + up + " " + right);
+
         int lowest = Math.min(Math.min(down, left), Math.min(up, right));
         if (lowest == down) return 0;
         if (lowest == left) return 1;
