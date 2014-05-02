@@ -119,11 +119,9 @@ public class Grid {
                     next.grid[x][y] *= 2;
                     next.grid[x][y+1] = 0;
                     total++;
-                    System.out.println("thinks it can merge?");
                 } else if (next.grid[x][y] == 0 && next.grid[x][y+1] > 0) {
                     next.grid[x][y] = next.grid[x][y+1];
                     next.grid[x][y+1] = 0;
-                    System.out.println("thinks it can move?");
                 }
             }
         }

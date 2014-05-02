@@ -29,7 +29,7 @@ public class JFenrir {
         Color edge = new Color(0xbbada0);
         int total = 500;
         int current = 0;
-        for (int x = 230; x < GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds().getWidth(); x++) {
+        for (int x = 228; x < GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds().getWidth(); x++) {
             for (int y = 0; y < GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds().getHeight(); y++) {
                 if (edge.equals(jFenrir.getPixelColor(x, y))) {
                     current++;
@@ -38,6 +38,7 @@ public class JFenrir {
                         return new Point(x, y);
                     }
                 } else {
+                    if (current > 0) System.out.println(new Point(x, y));
                     current = 0;
                 }
             }

@@ -35,6 +35,7 @@ public class Main {
      */
     public static void initialize() {
         Interperet.corner = fenrir.getCorner();
+        Interperet.setFirstPick();
         System.out.println(Interperet.corner);
         for (int i = Calculate.scenarios.length - 1; i >= 0; i--) {
             if (i < Calculate.scenarios.length - 2) {
