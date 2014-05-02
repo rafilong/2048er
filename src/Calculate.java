@@ -53,6 +53,9 @@ public class Calculate {
         } else if (d == 1) {
             System.out.println("left");
             Main.fenrir.pressKey(37);
+        } else if (d == 2) {
+            System.out.println("up");
+            Main.fenrir.pressKey(38);
         } else if (d == 3) {
             System.out.println("right");
             Main.fenrir.pressKey(39);

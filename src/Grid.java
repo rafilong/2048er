@@ -90,6 +90,23 @@ public class Grid {
     }
 
     /**
+     * Finds whether there is a change in the grid
+     * @return -100 when the boards are the same to prevent getting stuck
+     */
+    public int findChange() {
+        int totalSame = 0;
+        for (int x = 0; x < 4; x++) {
+            for (int y = 0; y < 4; y++) {
+                if (grid[x][y] == next.grid[x][y]) {
+                    totalSame++;
+                }
+            }
+        }
+        if (totalSame == 16) return -100;
+        return 0;
+    }
+
+    /**
      * Tries to move the board down
      * @return returns the number of combines, -1 if there are no changes
      */
@@ -107,7 +124,7 @@ public class Grid {
                 }
             }
         }
-        return total;
+        return total + findChange();
     }
 
     /**
@@ -128,7 +145,7 @@ public class Grid {
                 }
             }
         }
-        return total;
+        return total + findChange();
     }
 
     /**
@@ -136,7 +153,7 @@ public class Grid {
      * @return returns the number of combines, -1 if there are no changes
      */
     public int moveUp() {
-        int total = 0;
+        int total = -10;
         for (int y = 3; y > 0; y--) {
             for (int x = 0; x < 4; x++) {
                 if (grid[x][y] != 0 && grid[x][y] == grid[x][y-1]) {
@@ -149,7 +166,7 @@ public class Grid {
                 }
             }
         }
-        return total;
+        return total + findChange();
     }
 
     /**
@@ -171,6 +188,6 @@ public class Grid {
 
             }
         }
-        return total;
+        return total + findChange();
     }
 }
