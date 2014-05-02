@@ -114,12 +114,12 @@ public class Grid {
         int total = 0;
         for (int y = 0; y < 3; y++) {
             for (int x = 0; x < 4; x++) {
-                if (grid[x][y] != 0 && grid[x][y] == grid[x][y+1]) {
+                if (next.grid[x][y] != 0 && next.grid[x][y] == next.grid[x][y+1]) {
                     next.grid[x][y] *= 2;
                     next.grid[x][y+1] = 0;
                     total++;
-                } else if (grid[x][y] == 0 && grid[x][y+1] > 0) {
-                    next.grid[x][y] = grid[x][y+1];
+                } else if (next.grid[x][y] == 0 && next.grid[x][y+1] > 0) {
+                    next.grid[x][y] = next.grid[x][y+1];
                     next.grid[x][y+1] = 0;
                 }
             }
@@ -135,12 +135,12 @@ public class Grid {
         int total = 0;
         for (int y = 0; y < 4; y++) {
             for (int x = 3; x > 0; x--) {
-                if (grid[x][y] != 0 && grid[x][y] == grid[x-1][y]) {
+                if (next.grid[x][y] != 0 && next.grid[x][y] == next.grid[x-1][y]) {
                     next.grid[x][y] *= 2;
                     next.grid[x-1][y] = 0;
                     total++;
-                } else if (grid[x][y] == 0 && grid[x-1][y] > 0) {
-                    next.grid[x-1][y] = grid[x][y];
+                } else if (next.grid[x][y] == 0 && next.grid[x-1][y] > 0) {
+                    next.grid[x-1][y] = next.grid[x][y];
                     next.grid[x-1][y] = 0;
                 }
             }
@@ -156,12 +156,12 @@ public class Grid {
         int total = -10;
         for (int y = 3; y > 0; y--) {
             for (int x = 0; x < 4; x++) {
-                if (grid[x][y] != 0 && grid[x][y] == grid[x][y-1]) {
+                if (next.grid[x][y] != 0 && next.grid[x][y] == grid[x][y-1]) {
                     next.grid[x][y] *= 2;
                     next.grid[x][y-1] = 0;
                     total++;
-                } else if (grid[x][y] == 0 && grid[x][y-1] > 0) {
-                    next.grid[x][y-1] = grid[x][y];
+                } else if (next.grid[x][y] == 0 && next.grid[x][y-1] > 0) {
+                    next.grid[x][y-1] = next.grid[x][y];
                     next.grid[x][y-1] = 0;
                 }
             }
@@ -177,12 +177,12 @@ public class Grid {
         int total = 0;
         for (int y = 0; y < 4; y++) {
             for (int x = 0; x < 3; x++) {
-                if (grid[x][y] != 0 && grid[x][y] == grid[x+1][y]) {
+                if (next.grid[x][y] != 0 && next.grid[x][y] == next.grid[x+1][y]) {
                     next.grid[x][y] *= 2;
                     next.grid[x+1][y] = 0;
                     total++;
-                } else if (grid[x][y] == 0 && grid[x+1][y] > 0) {
-                    next.grid[x][y] = grid[x+1][y];
+                } else if (next.grid[x][y] == 0 && next.grid[x+1][y] > 0) {
+                    next.grid[x][y] = next.grid[x+1][y];
                     next.grid[x+1][y] = 0;
                 }
 
