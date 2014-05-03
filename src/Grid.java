@@ -118,7 +118,7 @@ public class Grid {
                 if (next.grid[x][y] != 0 && next.grid[x][y] == next.grid[x][y+1]) {
                     next.grid[x][y] *= 2;
                     next.grid[x][y+1] = 0;
-                    total++;
+                    total += weightingMerge(next.grid[x][y]);
                 } else if (next.grid[x][y] == 0 && next.grid[x][y+1] > 0) {
                     next.grid[x][y] = next.grid[x][y+1];
                     next.grid[x][y+1] = 0;
@@ -140,7 +140,7 @@ public class Grid {
                 if (next.grid[x][y] != 0 && next.grid[x][y] == next.grid[x-1][y]) {
                     next.grid[x-1][y] *= 2;
                     next.grid[x][y] = 0;
-                    total++;
+                    total += weightingMerge(next.grid[x][y]);
                 } else if (next.grid[x-1][y] == 0 && next.grid[x][y] > 0) {
                     next.grid[x-1][y] = next.grid[x][y];
                     next.grid[x][y] = 0;
@@ -162,7 +162,7 @@ public class Grid {
                 if (next.grid[x][y] != 0 && next.grid[x][y] == grid[x][y-1]) {
                     next.grid[x][y] *= 2;
                     next.grid[x][y-1] = 0;
-                    total++;
+                    total += weightingMerge(next.grid[x][y]);
                 } else if (next.grid[x][y] == 0 && next.grid[x][y-1] > 0) {
                     next.grid[x][y-1] = next.grid[x][y];
                     next.grid[x][y-1] = 0;
@@ -184,7 +184,7 @@ public class Grid {
                 if (next.grid[x][y] != 0 && next.grid[x][y] == next.grid[x+1][y]) {
                     next.grid[x+1][y] *= 2;
                     next.grid[x][y] = 0;
-                    total++;
+                    total += weightingMerge(next.grid[x][y]);
                 } else if (next.grid[x+1][y] == 0 && next.grid[x][y] > 0) {
                     next.grid[x+1][y] = next.grid[x][y];
                     next.grid[x][y] = 0;
@@ -206,5 +206,13 @@ public class Grid {
             }
             System.out.println();
         }
+    }
+
+    public static int weightingMerge(int value) {
+        if (value > 2048) return value * 10;
+        if (value > 512) return value * 6;
+        if (value > 128) return value * 4;
+        if (value > 32) return value * 2;
+        return value;
     }
 }
