@@ -80,11 +80,11 @@ public class Grid {
      * @param d direction of move
      * @return returns the number of combines
      */
-    public int move(int d) {
-        if (d == 0) return moveDown();
-        if (d == 1) return moveLeft();
-        if (d == 2) return moveUp();
-        if (d == 3) return moveRight();
+    public int move(int d, boolean findChange) {
+        if (d == 0) return moveDown(findChange);
+        if (d == 1) return moveLeft(findChange);
+        if (d == 2) return moveUp(findChange);
+        if (d == 3) return moveRight(findChange);
         if (d > 3 || d < 0) System.err.println("Invalid move");
         return -100;
     }
@@ -110,7 +110,7 @@ public class Grid {
      * Tries to move the board down
      * @return returns the number of combines, -1 if there are no changes
      */
-    public int moveDown() {
+    public int moveDown(boolean findChange) {
         printGrid();
         int total = 0;
         for (int y = 0; y < 3; y++) {
@@ -125,14 +125,15 @@ public class Grid {
                 }
             }
         }
-        return total + findChange();
+        if (findChange) return total + findChange();
+        return total;
     }
 
     /**
      * Tries to move the board left
      * @return returns the number of combines, -1 if there are no changes
      */
-    public int moveLeft() {
+    public int moveLeft(boolean findChange) {
         int total = 0;
         for (int y = 0; y < 4; y++) {
             for (int x = 3; x > 0; x--) {
@@ -146,14 +147,15 @@ public class Grid {
                 }
             }
         }
-        return total + findChange();
+        if (findChange) return total + findChange();
+        return total;
     }
 
     /**
      * Tries to move the board up
      * @return returns the number of combines, -1 if there are no changes
      */
-    public int moveUp() {
+    public int moveUp(boolean findChange) {
         int total = 0;
         for (int y = 3; y > 0; y--) {
             for (int x = 0; x < 4; x++) {
@@ -167,14 +169,15 @@ public class Grid {
                 }
             }
         }
-        return total + findChange();
+        if (findChange) return total + findChange();
+        return total;
     }
 
     /**
      * Tries to move the board right
      * @return returns the number of combines, -1 if there are no changes
      */
-    public int moveRight() {
+    public int moveRight(boolean findChange) {
         int total = 0;
         for (int y = 0; y < 4; y++) {
             for (int x = 0; x < 3; x++) {
@@ -189,7 +192,8 @@ public class Grid {
 
             }
         }
-        return total + findChange();
+        if (findChange) return total + findChange();
+        return total;
     }
 
     /**
