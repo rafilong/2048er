@@ -5,7 +5,7 @@ public class Calculate {
     /**
      * The number of steps to look ahead
      */
-    public static int lookAhead = 5;
+    public static int lookAhead = 7;
 
     /**
      * Holds the best move for the current scenario
@@ -23,21 +23,21 @@ public class Calculate {
      */
     public static int bestMove() {
         scenarios[0].setNext();
-        int down = scenarios[0].move(0, true);
+        double down = scenarios[0].move(0, true);
         down += getTotalFuture();
         scenarios[0].setNext();
-        int left = scenarios[0].move(1, true);
+        double left = scenarios[0].move(1, true);
         left += getTotalFuture();
         scenarios[0].setNext();
-        int up = scenarios[0].move(2, true);
+        double up = scenarios[0].move(2, true);
         up += getTotalFuture();
         scenarios[0].setNext();
-        int right = scenarios[0].move(3, true);
+        double right = scenarios[0].move(3, true);
         right += getTotalFuture();
 
         System.out.println(down + " " + left + " " + up + " " + right);
 
-        int largest = Math.max(Math.max(down, left), Math.max(up, right));
+        double largest = Math.max(Math.max(down, left), Math.max(up, right));
         if (largest == down) return 0;
         if (largest == left) return 1;
         if (largest == up) return 2;
@@ -50,10 +50,10 @@ public class Calculate {
      * Gets the best scenario for the future
      * @return the highest possible score for the future
      */
-    public static int getTotalFuture() {
-        int total = 0;
-        for (int i = 1; i < lookAhead - 1; i++) {
-            total += futureDirection(i);
+    public static double getTotalFuture() {
+        double total = 0;
+        for (double i = 1; i < lookAhead - 1; i++) {
+            total += futureDirection((int)i) / 2 * i;
         }
         return total;
     }
@@ -63,19 +63,19 @@ public class Calculate {
      * @param move what move it is
      * @return the largest score
      */
-    public static int futureDirection(int move) {
+    public static double futureDirection(int move) {
         scenarios[move].setNext();
-        int down = scenarios[move].move(0, false);
+        double down = scenarios[move].move(0, false);
         scenarios[move].setNext();
-        int left = scenarios[move].move(1, false);
+        double left = scenarios[move].move(1, false);
         scenarios[move].setNext();
-        int up = scenarios[move].move(2, false);
+        double up = scenarios[move].move(2, false);
         scenarios[move].setNext();
-        int right = scenarios[move].move(3, false);
+        double right = scenarios[move].move(3, false);
 
-        int largeScore = 0;
+        double largeScore = 0;
 
-        int largest = Math.max(Math.max(down, left), Math.max(up, right));
+        double largest = Math.max(Math.max(down, left), Math.max(up, right));
 
         if (largest == down) largeScore = scenarios[move].move(0, false);
         if (largest == left) largeScore = scenarios[move].move(1, false);
