@@ -71,6 +71,12 @@ public class JFenrir {
      * Restarts the game by pressing `R`
      */
     public void restart() {
+        try {
+            wait(5000);
+        } catch (InterruptedException e) {
+            System.err.println("Failed wait");
+            e.printStackTrace();
+        }
         pressKey(82);
         System.err.println("Restarting: largest was " + Calculate.scenarios[0].largest);
     }
