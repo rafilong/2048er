@@ -19,8 +19,12 @@ public class Main {
     public static void main(String args[]) {
         initialize();
         while (true) {
+            // resets the board to the screen
             Interperet.reset();
+            // moves the best move
             Calculate.move(Calculate.bestMove());
+            // restarts the game if it is over
+            if (Interperet.getGameStatus()) fenrir.pressKey(82);
         }
     }
 
