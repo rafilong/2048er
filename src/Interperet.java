@@ -75,16 +75,4 @@ public class Interperet {
         int y = (int) (firstPick.getY() - r * (cellWidth + cellPadding));
         return Main.fenrir.getColor(x, y);
     }
-
-    /**
-     * Sends the status of the game
-     * @return true if the game is over, false if has not ended
-     */
-    public static boolean getGameStatus() {
-        if (Main.fenrir.getColor((int) (corner.getX() + 245), (int) (corner.getY() + 245)).equals(new Color(0x8f7a66))) {
-            return true;
-        } else {
-            return false;
-        }
-    }
 }

@@ -23,8 +23,6 @@ public class Main {
             Interperet.reset();
             // moves the best move
             Calculate.move(Calculate.bestMove());
-            // restarts the game if it is over
-            if (Interperet.getGameStatus()) fenrir.pressKey(82);
         }
     }
 

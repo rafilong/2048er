@@ -38,6 +38,9 @@ public class Calculate {
         System.out.println(down + " " + left + " " + up + " " + right);
 
         double largest = Math.max(Math.max(down, left), Math.max(up, right));
+
+        if (largest == -100) Main.fenrir.restart();
+
         if (largest == down) return 0;
         if (largest == left) return 1;
         if (largest == up) return 2;

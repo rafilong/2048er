@@ -66,4 +66,12 @@ public class JFenrir {
         jFenrir.keyPress(key);
         jFenrir.keyRelease(key);
     }
+
+    /**
+     * Restarts the game by pressing `R`
+     */
+    public void restart() {
+        pressKey(82);
+        System.err.println("Restarting");
+    }
 }
