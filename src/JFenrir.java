@@ -26,6 +26,7 @@ public class JFenrir {
      * @return the point of the corner of the board
      */
     public Point getCorner() {
+        System.out.print("Finding corner");
         Color edge = new Color(0xbbada0);
         int total = 500;
         int current = 0;
@@ -33,8 +34,9 @@ public class JFenrir {
             for (int y = 0; y < GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds().getHeight(); y++) {
                 if (edge.equals(jFenrir.getPixelColor(x, y))) {
                     current++;
-                    System.out.println(current + " numbers of color");
+                    if (current % 100 == 0) System.out.print(".");
                     if (current == total) {
+                        System.out.println();
                         return new Point(x, y);
                     }
                 } else {
@@ -45,6 +47,7 @@ public class JFenrir {
             System.out.println("Calculating " + x + "th row");
         }
         System.out.println("Please open the 2048 window");
+        System.out.println();
         return getCorner();
     }
 
