@@ -5,7 +5,7 @@ public class Calculate {
     /**
      * The number of steps to look ahead
      */
-    public static int lookAhead = 7;
+    public static int lookAhead = 4;
 
     /**
      * Holds the best move for the current scenario

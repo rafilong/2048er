@@ -72,6 +72,6 @@ public class JFenrir {
      */
     public void restart() {
         pressKey(82);
-        System.err.println("Restarting");
+        System.err.println("Restarting: largest was " + Calculate.scenarios[0].largest);
     }
 }
