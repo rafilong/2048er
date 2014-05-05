@@ -72,9 +72,9 @@ public class JFenrir {
      */
     public void restart() {
         try {
-            wait(5000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
-            System.err.println("Failed wait");
+            System.err.println("Failed sleep");
             e.printStackTrace();
         }
         pressKey(82);
