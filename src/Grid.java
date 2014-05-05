@@ -111,7 +111,6 @@ public class Grid {
      * @return returns the number of combines, -1 if there are no changes
      */
     public int moveDown(boolean findChange) {
-        printGrid();
         int total = 0;
         for (int y = 0; y < 3; y++) {
             for (int x = 0; x < 4; x++) {
