@@ -41,7 +41,7 @@ public class Calculate {
 
         double largest = Math.max(Math.max(down, left), Math.max(up, right));
 
-        if (largest == -100) Main.fenrir.restart();
+        if (scenarios[0].largest == 0) Main.fenrir.restart();
 
         if (largest == down) return 0;
         if (largest == left) return 1;
