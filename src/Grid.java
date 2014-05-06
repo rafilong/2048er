@@ -32,18 +32,26 @@ public class Grid {
     }
 
     /**
-     * Sets and gets the biggest value in the grid
+     * Sets the largest to be the current largest in the grid
+     */
+    public void setLargest() {
+        largest = getCurrentLargest();
+    }
+
+    /**
+     * Gets the biggest value currently in the grid
      * @return Returns the biggest number
      */
-    public int getLargest() {
+    public int getCurrentLargest() {
+        int currentLargest = 0;
         for (int y = 0; y < 4; y++) {
             for (int x = 0; x < 4; x++) {
-                if (grid[x][y] > largest) {
-                    largest = grid[x][y];
+                if (grid[x][y] > currentLargest) {
+                    currentLargest = grid[x][y];
                 }
             }
         }
-        return largest;
+        return currentLargest;
     }
 
     /**
