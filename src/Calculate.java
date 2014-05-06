@@ -22,6 +22,8 @@ public class Calculate {
      * @return the best direction
      */
     public static int bestMove() {
+        scenarios[0].getLargest();
+
         scenarios[0].setNext();
         double down = scenarios[0].move(0, true);
         down += getTotalFuture();
