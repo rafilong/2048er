@@ -8,11 +8,6 @@ public class Calculate {
     public static int lookAhead = 4;
 
     /**
-     * Holds the best move for the current scenario
-     */
-    public static int[][] moves = new int[lookAhead + 2][2];
-
-    /**
      * Possible scenarios for the future
      */
     public static Grid[] scenarios = new Grid[lookAhead];
