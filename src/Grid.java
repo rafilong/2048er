@@ -66,9 +66,7 @@ public class Grid {
      */
     public void setNext() {
         for (int x = 0; x < 4; x++) {
-            for (int y = 0; y < 4; y++) {
-                next.grid[x][y] = grid[x][y];
-            }
+            System.arraycopy(grid[x], 0, next.grid[x], 0, 4);
         }
     }
 
