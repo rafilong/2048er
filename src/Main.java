@@ -1,6 +1,3 @@
-import javafx.embed.swing.JFXPanel;
-
-import java.awt.*;
 import java.util.Scanner;
 
 /**
