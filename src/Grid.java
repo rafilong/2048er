@@ -215,6 +215,11 @@ public class Grid {
         }
     }
 
+    /**
+     * Weights the score of merging values
+     * @param value the value that will be weighted
+     * @return the weighted score
+     */
     public static int weightingMerge(int value) {
         if (value >= 2048) return value * 20;
         if (value >= 512) return value * 12;
