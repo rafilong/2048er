@@ -219,10 +219,10 @@ public class Grid {
      * @return the weighted score
      */
     public static int weightingMerge(int value) {
-        if (value >= 2048) return value * 20;
+    /*    if (value >= 2048) return value * 20;
         if (value >= 512) return value * 12;
         if (value >= 128) return value * 8;
-        if (value >= 32) return value * 4;
+        if (value >= 32) return value * 4; */
         return value;
     }
 }
