@@ -1,0 +1,6 @@
+# Intellij
+
+*.xml
+*.name
+*.iml
+*.class
